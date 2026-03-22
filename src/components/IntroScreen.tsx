@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Heart } from 'lucide-react';
 
 interface IntroScreenProps {
   onStart: () => void;
@@ -7,39 +6,39 @@ interface IntroScreenProps {
 
 export const IntroScreen: React.FC<IntroScreenProps> = ({ onStart }) => {
   return (
-    <div className="flex flex-col items-center justify-center text-center px-4 max-w-lg w-full">
+    <div className="flex flex-col items-center justify-center text-center px-4 max-w-lg w-full min-h-[500px]">
+      
+      {/* The closed Album Cover */}
       <motion.div
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
+        initial={{ opacity: 0, y: 50, rotateX: 10 }}
+        animate={{ opacity: 1, y: 0, rotateX: 0 }}
+        transition={{ duration: 1.5, type: "spring", bounce: 0.3 }}
+        className="album-cover w-72 h-[420px] md:w-80 md:h-[480px] relative flex flex-col items-center justify-center cursor-pointer group"
+        onClick={onStart}
       >
-        <span className="block mb-6 text-white/50 tracking-[0.5em] font-light uppercase text-[9px] animate-pulse font-romantic">
-            Personal digital archive
-        </span>
-        
-        <h1 className="text-5xl md:text-7xl font-header font-bold mb-12 tracking-tighter text-white drop-shadow-xl uppercase">
-          For You
-        </h1>
+        <div className="album-spine" />
+        <div className="stitched-edge" />
 
-        <motion.button
-          whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 0, 127, 0.9)" }}
-          whileTap={{ scale: 0.95 }}
-          onClick={onStart}
-          className="group relative inline-flex items-center justify-center px-12 py-4 font-romantic text-white transition-all duration-500 bg-romantic-pink/40 rounded-sm focus:outline-none backdrop-blur-md border border-white/20 shadow-2xl overflow-hidden"
+        {/* The label in the center */}
+        <motion.div 
+          className="bg-paper py-5 px-8 shadow-md border border-black/10 -rotate-3 relative ml-6 group-hover:rotate-0 transition-transform duration-500"
         >
-          {/* Animated Background Shine */}
-          <motion.div 
-            className="absolute inset-0 bg-white/10"
-            initial={{ x: "-100%" }}
-            whileHover={{ x: "100%" }}
-            transition={{ duration: 0.6 }}
-          />
+          {/* Tape holding the label */}
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-7 tape-clear rotate-4 shadow-sm" />
           
-          <span className="relative flex items-center tracking-[0.3em] text-[10px] uppercase font-bold">
-            Explore
-            <Heart className="ml-4 w-3.5 h-3.5 fill-white group-hover:scale-125 transition-transform duration-500" />
+          <span className="block mb-2 text-red-ink font-marker text-xl -rotate-2">
+              To my favorite person
           </span>
-        </motion.button>
+          <h1 className="text-4xl md:text-5xl font-handwriting font-bold text-ink leading-tight mt-2">
+            Open The <br/> Album
+          </h1>
+        </motion.div>
+
+        {/* A tiny handwritten hint */}
+        <p className="absolute bottom-8 right-6 font-marker text-paper/80 text-xl -rotate-6 group-hover:scale-110 transition-transform">
+          (Tap anywhere)
+        </p>
+
       </motion.div>
     </div>
   );
