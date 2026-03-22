@@ -49,7 +49,7 @@ function App() {
         <>
           <KuromiSticker 
             position="bottom-left" 
-            image="/Picsart_26-03-22_22-51-26-450.png"
+            image={`${import.meta.env.BASE_URL}Picsart_26-03-22_22-51-26-450.png`}
             messages={[
               "Happy Birthday Kashu! 🖤",
               "You're my favorite! ✨",
@@ -59,7 +59,7 @@ function App() {
           />
           <KuromiSticker 
             position="bottom-right" 
-            image="/Picsart_26-03-22_22-55-38-780.png"
+            image={`${import.meta.env.BASE_URL}Picsart_26-03-22_22-55-38-780.png`}
             messages={[
               "HAPPY BIRTHDAY BABYYY! 💖",
               "Look at all these gifts! 🎁",

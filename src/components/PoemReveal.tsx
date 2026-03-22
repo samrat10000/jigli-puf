@@ -28,7 +28,7 @@ export const PoemReveal: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const audio = new Audio('/bg-music.m4a');
+    const audio = new Audio(`${import.meta.env.BASE_URL}bg-music.m4a`);
     audio.loop = true;
     audioRef.current = audio;
 
@@ -141,7 +141,7 @@ export const PoemReveal: React.FC = () => {
           
           <div className="w-full h-80 bg-gray-200 overflow-hidden relative border border-gray-100 flex items-center justify-center polaroid-gloss">
              <img 
-                 src="/sister.jpg" 
+                 src={`${import.meta.env.BASE_URL}sister.jpg`}
                  alt="My Sister" 
                  className="w-full h-full object-cover"
                  onError={(e) => {
@@ -263,7 +263,7 @@ export const PoemReveal: React.FC = () => {
           {/* The invisible "string" or chain */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[2.5px] h-20 bg-ink/30" />
           <img 
-              src="/Picsart_26-03-22_22-58-25-218 (1).png" 
+              src={`${import.meta.env.BASE_URL}Picsart_26-03-22_22-58-25-218 (1).png`}
               alt="Keychain" 
               className="w-full h-full object-contain mt-10" 
           />
