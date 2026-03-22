@@ -28,17 +28,6 @@ export const PoemReveal: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const audio = new Audio(`${import.meta.env.BASE_URL}bg-music.m4a`);
-    audio.loop = true;
-    audioRef.current = audio;
-
-    return () => {
-      audio.pause();
-      audioRef.current = null;
-    };
-  }, []);
-
-  useEffect(() => {
     if (!audioRef.current) return;
 
     if (isPlaying) {
@@ -46,7 +35,9 @@ export const PoemReveal: React.FC = () => {
     } else {
       audioRef.current.pause();
     }
+  }, [isPlaying]);
 
+  useEffect(() => {
     let frameId: number;
     const step = () => {
       if (audioRef.current && audioRef.current.duration) {
@@ -291,6 +282,14 @@ export const PoemReveal: React.FC = () => {
           </button>
         </div>
       </motion.div>
+
+      {/* Hidden Audio Element for playback */}
+      <audio 
+        ref={audioRef} 
+        src={`${import.meta.env.BASE_URL}bg-music.m4a`} 
+        loop 
+        preload="auto" 
+      />
       </div>
     </motion.div>
   );
