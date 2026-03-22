@@ -42,15 +42,15 @@ export const PoemReveal: React.FC = () => {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 4, ease: "easeInOut" }} // Very slow, peaceful fade-in
-      className="flex flex-col items-center justify-center w-full max-w-xl mx-auto"
+      transition={{ duration: 4, ease: "easeInOut" }}
+      className="flex flex-col items-center justify-center w-full max-w-2xl mx-auto"
     >
-      <div className="w-full space-y-4 text-center">
+      <div className="w-full space-y-4 md:space-y-6 text-center">
         {POEM_LINES.map((line, index) => (
           <p
             key={index}
-            className={`text-lg md:text-xl font-serif text-white/90 leading-relaxed tracking-wide italic ${
-              line === "" ? "h-4" : ""
+            className={`text-2xl md:text-3xl font-romantic text-white/95 leading-relaxed tracking-wider font-light italic selection:bg-romantic-pink/30 ${
+              line === "" ? "h-6 md:h-8" : ""
             }`}
           >
             {line}
@@ -63,9 +63,9 @@ export const PoemReveal: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.8 }}
         transition={{ duration: 2, delay: 3 }}
-        className="mt-12 text-romantic-pink"
+        className="mt-16 text-romantic-pink"
       >
-        <div className="text-2xl animate-pulse">❤️</div>
+        <div className="text-3xl animate-pulse drop-shadow-[0_0_15px_rgba(255,0,127,0.5)]">❤️</div>
       </motion.div>
     </motion.div>
   );

@@ -1,16 +1,18 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 @theme {
   --color-romantic-bg: #1abc9c;
   --color-romantic-pink: #ff007f;
   --color-romantic-text: #1a1a1a;
-  --font-romantic: "Playfair Display", serif;
-  --font-cursive: "Dancing Script", cursive;
+  --font-romantic: "Cormorant Garamond", serif;
+  --font-header: "Montserrat", sans-serif;
 }
 
 :root {
   background-color: var(--color-romantic-bg);
   color: var(--color-romantic-text);
+  font-family: var(--font-romantic);
 }
 
 html, body, #root {
